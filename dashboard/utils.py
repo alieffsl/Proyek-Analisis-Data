@@ -3,7 +3,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-sns.set_style(style="lightgrid")
+sns.set_style(style="whitegrid")
 plt.style.use('seaborn-whitegrid')
 
 to_month = {
