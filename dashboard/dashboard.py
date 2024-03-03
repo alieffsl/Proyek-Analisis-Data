@@ -25,9 +25,9 @@ selected_mode = mode_col.radio("Select mode:", ["Daily", "Hourly"])
 if selected_mode == "Daily":
     date_range = date_col.date_input(
         label='Select Date Range:',
-        min_value=min_date,
-        max_value=max_date,
-        value=[min_date, max_date]
+        min_value=pd.to_datetime(min_date),  # Ensure the min date is in datetime format
+        max_value=pd.to_datetime(max_date),  # Ensure the max date is in datetime format
+        value=[pd.to_datetime(min_date), pd.to_datetime(max_date)]  # Ensure the default values are in datetime format
     )
 
     df_cur = filter_data(df_day, date_range)
@@ -45,9 +45,9 @@ if selected_mode == "Daily":
 else:
     date_range = date_col.date_input(
         label='Select Date Range:',
-        min_value=min_date,
-        max_value=max_date,
-        value=[min_date, max_date]
+        min_value=pd.to_datetime(min_date),  # Ensure the min date is in datetime format
+        max_value=pd.to_datetime(max_date),  # Ensure the max date is in datetime format
+        value=[pd.to_datetime(min_date), pd.to_datetime(max_date)]  # Ensure the default values are in datetime format
     )
 
     time_start = time_start_col.time_input('Start Time:', datetime.time(0, 0))
