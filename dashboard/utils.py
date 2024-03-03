@@ -92,7 +92,7 @@ def monthly_plot(df: pd.DataFrame, feature='cnt', return_df=False):
         return df_result
 
     plt.figure(figsize=(12, 6))
-    barplot = sns.barplot(x=f'month_{feature}', y='month_year', data=df_result, orient='h')
+    barplot = sns.barplot(x=feature, y='month_year', data=df_result, orient='h')
     barplot.set_title(f'Monthly Trend of Bike Rents by {feature}')
     barplot.set_xlabel(f'Average {feature.capitalize()} Count')
     barplot.set_ylabel('Month-Year')
