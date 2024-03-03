@@ -31,15 +31,27 @@ if selected_mode == "Daily":
     )
 
     df_cur = filter_data(df_day, date_range)
-
+    
     monthly_plot = monthly_plot(df_cur)
     st.pyplot(monthly_plot.figure)
 
-    seasonly_group_plot = monthly_or_seasonly_pie(df_cur, by='season')
-    monthly_group_plot = monthly_or_seasonly_pie(df_cur, by='mnth')
+    column1, column2 = st.columns(2)
 
-    st.pyplot(seasonly_group_plot, use_container_width=True)
-    st.pyplot(monthly_group_plot, use_container_width=True)
+    seasonly_group_plot = monthly_or_seasonly_pie(df_cur, by='season')
+    column1.pyplot(seasonly_group_plot)
+
+    monthly_group_plot = monthly_or_seasonly_pie(df_cur, by='mnth')
+    column2.pyplot(monthly_group_plot)
+
+
+    # monthly_plot = monthly_plot(df_cur)
+    # st.pyplot(monthly_plot.figure)
+
+    # seasonly_group_plot = monthly_or_seasonly_pie(df_cur, by='season')
+    # monthly_group_plot = monthly_or_seasonly_pie(df_cur, by='mnth')
+
+    # st.pyplot(seasonly_group_plot, use_container_width=True)
+    # st.pyplot(monthly_group_plot, use_container_width=True)
 
 else:
     date_range = st.date_input(
@@ -57,10 +69,19 @@ else:
     hourly_plot = hourly_bar(df_cur)
     st.pyplot(hourly_plot.figure)
 
+    # seasonly_group_plot = monthly_or_seasonly_pie(df_cur, by='season')
+    # monthly_group_plot = monthly_or_seasonly_pie(df_cur, by='mnth')
+
+    # st.pyplot(seasonly_group_plot, use_container_width=True)
+    # st.pyplot(monthly_group_plot, use_container_width=True)
+
+
+    column1, column2 = st.columns(2)
+
     seasonly_group_plot = monthly_or_seasonly_pie(df_cur, by='season')
+    column1.pyplot(seasonly_group_plot)
+
     monthly_group_plot = monthly_or_seasonly_pie(df_cur, by='mnth')
-
-    st.pyplot(seasonly_group_plot, use_container_width=True)
-    st.pyplot(monthly_group_plot, use_container_width=True)
-
+    column2.pyplot(monthly_group_plot)
+    
 st.dataframe(df_cur)

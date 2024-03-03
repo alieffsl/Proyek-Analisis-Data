@@ -50,8 +50,8 @@ def preprocess_data(df):
     return df
 
 def filter_data(df, date_range, time_range=None):
-    start_date, end_date = date_range
     df_copy = df.copy()
+    start_date, end_date = date_range
     
     # Convert 'dteday' column to datetime
     df_copy['dteday'] = pd.to_datetime(df_copy['dteday'])
