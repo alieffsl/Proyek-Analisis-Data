@@ -15,7 +15,6 @@ df_hour = preprocess_data(df_hour)
 min_date = pd.to_datetime(df_day['dteday'].min())
 max_date = pd.to_datetime(df_day['dteday'].max())
 
-# Sidebar
 header, _ = st.columns([0.8, 0.2])
 
 mode_col, date_col, time_start_col, time_end_col = header.columns([10, 15, 8, 8])

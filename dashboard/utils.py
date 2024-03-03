@@ -52,16 +52,12 @@ def preprocess_data(df):
 def filter_data(df, date_range, time_range=None):
     df_copy = df.copy()
     start_date, end_date = date_range
-    
-    # Convert 'dteday' column to datetime
     df_copy['dteday'] = pd.to_datetime(df_copy['dteday'])
 
-    # Filter DataFrame based on date range
     df_copy = df_copy[df_copy['dteday'].dt.date >= start_date]
     if end_date is not None:
         df_copy = df_copy[df_copy['dteday'].dt.date <= end_date]
 
-    # If time_range is provided, filter based on time as well
     if time_range is not None:
         df_copy = df_copy[df_copy['hr'] >= time_range[0].hour]
         df_copy = df_copy[df_copy['hr'] <= time_range[1].hour]
