@@ -45,7 +45,7 @@ season = {
 def preprocess_data(df):
     df['mnth'] = df['mnth'].map(to_month)
     df['yr'] = df['yr'].map(to_year)
-    df['hr'] = df['hr'].map(hr_format)
+    # df['hr'] = df['hr'].map(hr_format)
     df['season'] = df['season'].map(season)
     return df
 
