@@ -10,11 +10,11 @@ from utils import *
 df_day = pd.read_csv("https://raw.githubusercontent.com/alieffsl/Proyek-Analisis-Data/main/data/day.csv?token=GHSAT0AAAAAACO7JKVX2DZAM5NYOSD6SLQKZPD65MQ")
 df_hour = pd.read_csv("https://raw.githubusercontent.com/alieffsl/Proyek-Analisis-Data/main/data/hour.csv?token=GHSAT0AAAAAACO7JKVXYRUF6E6BEBGQKV3OZPD66RA")
 
-if not os.path.isfile(df_day):
-    print(f"Error: {df_day} does not exist.")
+# if not os.path.isfile(df_day):
+#     print(f"Error: {df_day} does not exist.")
 
-if not os.path.isfile(df_hour):
-    print(f"Error: {df_hour} does not exist.")
+# if not os.path.isfile(df_hour):
+#     print(f"Error: {df_hour} does not exist.")
 
 # Preproc
 df_day = preprocess_data(df_day)
