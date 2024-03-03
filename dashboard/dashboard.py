@@ -1,6 +1,4 @@
 import pandas as pd
-import numpy as np
-import seaborn as sns
 import streamlit as st
 import os
 import datetime
@@ -52,8 +50,8 @@ else:
         value=[min_date, max_date]
     )
 
-    time_start = time_start_col.time_input('Start Time:', datetime.time(0, 00))
-    time_end = time_end_col.time_input('End Time:', datetime.time(23, 00))
+    time_start = time_start_col.time_input('Start Time:', datetime.time(0, 0))
+    time_end = time_end_col.time_input('End Time:', datetime.time(23, 0))
 
     df_cur = filter_data(df_hour, date_range, (time_start, time_end))
 
