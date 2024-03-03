@@ -1,20 +1,14 @@
 import pandas as pd
 import numpy as np
 import seaborn as sns
-
 import streamlit as st
-import os, datetime
+import os
+import datetime
 from utils import *
 
-# dir = "../data/"
-df_day = pd.read_csv("https://raw.githubusercontent.com/alieffsl/Proyek-Analisis-Data/main/data/day.csv?token=GHSAT0AAAAAACO7JKVX2DZAM5NYOSD6SLQKZPD65MQ")
-df_hour = pd.read_csv("https://raw.githubusercontent.com/alieffsl/Proyek-Analisis-Data/main/data/hour.csv?token=GHSAT0AAAAAACO7JKVXYRUF6E6BEBGQKV3OZPD66RA")
-
-# if not os.path.isfile(df_day):
-#     print(f"Error: {df_day} does not exist.")
-
-# if not os.path.isfile(df_hour):
-#     print(f"Error: {df_hour} does not exist.")
+dir = "../data/"
+df_day = pd.read_csv(os.path.join(dir, "day.csv"))
+df_hour = pd.read_csv(os.path.join(dir, "hour.csv"))
 
 # Preproc
 df_day = preprocess_data(df_day)
@@ -23,7 +17,7 @@ df_hour = preprocess_data(df_hour)
 min_date = df_day['dteday'].min()
 max_date = df_day['dteday'].max()
 
-#Sidebar
+# Sidebar
 header, _ = st.columns([0.8, 0.2])
 
 mode_col, date_col, time_start_col, time_end_col = header.columns([10, 15, 8, 8])
@@ -74,7 +68,3 @@ else:
         st.pyplot(monthly_group_plot, use_container_width=True)
 
 st.dataframe(df_cur)
-
-
-
-
