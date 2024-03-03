@@ -49,12 +49,13 @@ def preprocess_data(df):
     df['season'] = df['season'].map(season)
     return df
 
-def filter_data(df, date, time=None):
-    df = df.copy()
-    df_copy = df_copy.loc[(df_copy['dteday'] >= str(date[0])) & (df_copy['dteday'] <= str(date[-1]))]
-    if time is not None:
-        df_copy = df_copy[(df_copy['hr'] >= time[0].hour) & (df_copy['hr'] <= time[1].hour)]
+def filter_data(df, date_range):
+    df_copy = df.copy()
+    start_date, end_date = date_range
 
+    df_copy['dteday'] = pd.to_datetime(df_copy['dteday'])  # Convert 'dteday' to datetime
+
+    df_copy = df_copy.loc[(df_copy['dteday'] >= start_date) & (df_copy['dteday'] <= end_date)]
     return df_copy
 
 def hourly_bar(df: pd.DataFrame, by='hr', col='cnt'):
