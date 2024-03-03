@@ -55,7 +55,7 @@ def filter_data(df, date_range):
 
     df_copy['dteday'] = pd.to_datetime(df_copy['dteday'])  # Convert 'dteday' to datetime
 
-    df_copy = df_copy.loc[(df_copy['dteday'] >= start_date) & (df_copy['dteday'] <= end_date)]
+    df_copy = df_copy.loc[(df_copy['dteday'] >= pd.to_datetime(start_date)) & (df_copy['dteday'] <= pd.to_datetime(end_date))]
     return df_copy
 
 def hourly_bar(df: pd.DataFrame, by='hr', col='cnt'):
