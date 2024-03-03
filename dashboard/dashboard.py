@@ -6,7 +6,7 @@ import os
 import datetime
 from utils import *
 
-dir = "../data/"
+dir = "./data/"
 df_day = pd.read_csv(os.path.join(dir, "day.csv"))
 df_hour = pd.read_csv(os.path.join(dir, "hour.csv"))
 
