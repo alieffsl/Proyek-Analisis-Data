@@ -4,7 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 sns.set_style(style="whitegrid")
-plt.style.use('seaborn-whitegrid')
+plt.style.use('fivethirtyeight')
 
 to_month = {
     1: "January",
